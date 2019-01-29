@@ -1,0 +1,4 @@
+ui_print("Flashing SPLASH LOGO ...");
+package_extract_file("splash.img", "/dev/block/bootdevice/by-name/splash");
+ui_print("Boot Logo has been flashed successfully!");
+ui_print("By ** eegad :: Find me on telegram @eegad **");

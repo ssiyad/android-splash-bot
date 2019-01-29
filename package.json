@@ -1,0 +1,37 @@
+{
+  "name": "splash-bot",
+  "version": "1.0.0",
+  "description": "A bot to make splash screen of android devices(.img)",
+  "main": "bot.js",
+  "scripts": {
+    "test": "jshint bot.js",
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eegad/splash-bot.git"
+  },
+  "keywords": [
+    "android",
+    "splash",
+    "bot",
+    "telegram"
+  ],
+  "author": "eegad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eegad/splash-bot/issues"
+  },
+  "homepage": "https://github.com/eegad/splash-bot#readme",
+  "dependencies": {
+    "archiver": "^3.0.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "image-downloader": "^3.4.2",
+    "shelljs": "^0.8.3",
+    "telegraf": "^3.26.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.7"
+  }
+}
