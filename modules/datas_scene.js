@@ -8,7 +8,7 @@ const download = require("../modules/download_image");
 const WizardScene = require("telegraf/scenes/wizard");
 module.exports = new WizardScene("datas",
   (ctx) => {
-    shell.mkdir(`users/${ctx.from.id}`, `users/${ctx.from.id}/images`, `users/${ctx.from.id}/output`);
+    shell.mkdir(`users`, `users/${ctx.from.id}`, `users/${ctx.from.id}/images`, `users/${ctx.from.id}/output`);
     ctx.reply("Send main logo");
     return ctx.wizard.next();
    },
