@@ -1,7 +1,7 @@
 const shell = require("shelljs");
 
-module.exports = function(normal_image, name){
-  shell.exec(`convert ${normal_image} -type truecolor images/${name}.bmp`);
+module.exports = function(normal_image, name, ctx){
+  shell.exec(`convert ${normal_image} -type truecolor users/${ctx.from.id}/images/${name}.bmp`);
 }
 
 //this method return bitmap with negative height
