@@ -8,7 +8,7 @@ const download = require("../modules/download_image");
 const WizardScene = require("telegraf/scenes/wizard");
 module.exports = new WizardScene("datas",
   (ctx) => {
-    shell.mkdir(`users`, `users/${ctx.from.id}`, `users/${ctx.from.id}/images`, `users/${ctx.from.id}/output`);
+    shell.mkdir(`users`, `users/${ctx.from.id}`, `users/${ctx.from.id}/images`, `users/${ctx.from.id}/output`, `users/${ctx.from.id}/utils`);
     ctx.reply("Send main logo");
     return ctx.wizard.next();
    },
@@ -58,20 +58,23 @@ module.exports = new WizardScene("datas",
       return ctx.wizard.next();
     }else {
       await make_bmp("default_images/system_corrupt.png", "splash3", ctx);
-      ctx.reply("Stock corrupt image selected\nSay okay");
+      ctx.reply("Stock corrupt image selected\nSay your name");
       return ctx.wizard.next();
     }
   },
   async(ctx) => {
+    await shell.cp("-r", "utils/flash_file", `users/${ctx.from.id}/utils/`);
+    await fs.appendFileSync(`users/${ctx.from.id}/utils/flash_file/META-INF/com/google/android/updater-script`, `ui_print("** Idea by ${ctx.message.text} **");\nui_print("####################################");\nui_print("####################################");`);
     await make_image(ctx);
     await make_zip(ctx);
     ctx.reply("Sending output files!");
     //<------------------->//
-    const imgs = await ctx.telegram.sendDocument(
+    /*const imgs = await ctx.telegram.sendDocument(
       ctx.message.chat.id, {
         source: `users/${ctx.from.id}/output/splash.img`
        }
     );
+    */
     const zips = await ctx.telegram.sendDocument(
       ctx.message.chat.id, {
         source: `users/${ctx.from.id}/output/flashableZip.zip`

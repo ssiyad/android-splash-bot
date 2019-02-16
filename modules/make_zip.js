@@ -6,6 +6,6 @@ module.exports = function(ctx) {
   let output = fs.createWriteStream(`users/${ctx.from.id}/output/flashableZip.zip`);
   zip.pipe(output);
   zip.file(`users/${ctx.from.id}/output/splash.img`, { name: "splash.img" });
-  zip.directory("utils/flash_file", "/");
+  zip.directory(`users/${ctx.from.id}/utils/flash_file`, "/");
   zip.finalize();
 };
