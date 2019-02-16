@@ -66,7 +66,7 @@ module.exports = new WizardScene("datas",
     await make_image(ctx);
     await make_zip(ctx);
     ctx.reply("Sending output files!");
-    //<------------------->//
+    //<----------Send output--------->//
     const imgs = await ctx.telegram.sendDocument(
       ctx.message.chat.id, {
         source: `users/${ctx.from.id}/output/splash.img`
