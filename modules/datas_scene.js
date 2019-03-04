@@ -69,12 +69,11 @@ module.exports = new WizardScene("datas",
     await make_zip(ctx);
     ctx.reply("Sending output files!");
     //<------------------->//
-    /*const imgs = await ctx.telegram.sendDocument(
+    const imgs = await ctx.telegram.sendDocument(
       ctx.message.chat.id, {
         source: `users/${ctx.from.id}/output/splash.img`
        }
     );
-    */
     const zips = await ctx.telegram.sendDocument(
       ctx.message.chat.id, {
         source: `users/${ctx.from.id}/output/flashableZip.zip`
